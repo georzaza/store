@@ -1,0 +1,19 @@
+FIRST CREATE THE GIT INSIDE THE STORE FOLDER
+
+git init
+git remote add origin https://github.com/georzaza/store
+
+[OPTIONAL: git config user.name "Maria Baliota"] 
+
+
+
+TO UPLOAD SOME CHANGES
+
+git add .
+git commit -m "a message goes here"
+git push -u origin master
+
+
+TO DOWNLOAD AND UPDATE YOUR WORKING TREE
+
+git pull origin master
