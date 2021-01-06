@@ -7,59 +7,57 @@ use App\Models\Recipe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+
+/* List of functions in this Controller:
+ *
+ *	index()
+ *	create()
+ *	store(Request request)
+ *	show($id)					NOT IMPLEMENTED
+ *	edit($id)
+ *	update(Request $request, $id)
+ *	destroy($id)
+ */
+
 class RecipeController extends Controller
 {
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    /** Display a listing of the resource. */
     public function index()
     {
 		// We execute a join and pass the recipes table and 
 		// the result of the join to our view in order to be able
 		// to handle the data in our view.
-		//
-		// We should do tricks in our view to not diplay the same 
-		// recipe again and again for different ingredients..
-		// Check the resources/views/recipes/index.blade.php for the 
-		// corresponding code of this view.
 		$items = DB::table('recipes')
-					->join('ingredients', 'recipes.recipe_id', '=', 'ingredients.recipe')
-					->select('recipe_name', 'execution', 'ingredient_name', 'qty', 'recipe')
-					->get();
+			->join('ingredients', 'recipes.recipe_id', '=', 'ingredients.recipe')
+			->select('recipe_name', 'execution', 'notes', 'ingredient_name', 'qty', 'recipe')
+			->get();
 		$recipes = Recipe::all();
 		return view('recipes.index', ['items' => $items, 'recipes' => $recipes]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    /** Show the form for creating a new resource. */
     public function create()
     {
         return view('recipes.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
+    /** Store a newly created resource in storage. */
     public function store(Request $request)
     {	
 		// Save the recipe, without ingredients.
 		// We do this first as we need it's id for the ingredient table.
         $request->validate([
 			'recipe_name'	=> 'required', 
-			'execution'		=> 'required'
+			'execution'		=> 'required', 
+			'notes'			=> 'required'
 		]);
         $recipe = new Recipe([
 			'recipe_name'	=> $request->get('recipe_name'), 
-			'execution'		=> $request->get('execution')
+			'execution'		=> $request->get('execution'), 
+			'notes'			=> $request->get('notes')
         ]);
 		$recipe->save();
 		
@@ -68,8 +66,8 @@ class RecipeController extends Controller
 		// For every ingredient of the request, we
 		// create a new ingredient entry in our table, 
 		// save it's name and qty based on request, 
-		// and associate it's foreign key recipe_id with the recipe 
-		// we saved earlier.
+		// and associate it's foreign recipe_id key with the recipe's 
+		// id that we just saved earlier.
 		$counter = 0;
 		while($request->has('recipeIngredients'.strval($counter))  &&
 			  $request->has('recipeIngredientQty'.strval($counter)))	{
@@ -92,42 +90,30 @@ class RecipeController extends Controller
         return redirect('/recipes')->with('success', 'recipe saved!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
+    /** Display the specified resource. */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
+    /** Show the form for editing the specified resource. */
     public function edit($id)
     {
         $recipe = Recipe::find($id);
         return view('recipes.edit', compact('recipe'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
+    /** Update the specified resource in storage. */
     public function update(Request $request, $id)
     {
 		// validate the fields required for the recipe.
         $request->validate([
 			'recipe_name'	=> 'required', 
-			'execution'		=> 'required'
+			'execution'		=> 'required', 
+			'notes'			=> 'required'
 		]);
 		// What follows is an alternate implementation of how
 		// to update a recipe and it's ingredients.
@@ -141,19 +127,19 @@ class RecipeController extends Controller
 		//			'execution'   => $request->get('execution'),
 		//		]);
 		//
-		// Also, instead of querying for all the ingredients, deleting them
-		// and then adding new ones, as we do below, we should probably
-		// first check if the new ingredients entered are the same as the 
-		// old ones, and if not, only then to remove the old unused and 
-		// insert the new ones, with a similar statement as we gave for
-		// updating the recipe in this comment section.
-		// Nevertheless, what we did works fine for this project.
+		// Should probably improve the following like this:
+		// Somehow, we should filter and get only the fields that 
+		// the user changed, and then update only them. Javascript maybe?
+		// What we do is: 
+		// We delete all ingredients, and then get the new ones. 
 
 		// get the recipe that we are updating, 
 		// update it's values and save it.
 		$recipe = Recipe::find($id);
 		$recipe->recipe_name = $request->get('recipe_name');
 		$recipe->execution	 = $request->get('execution');
+		$recipe->notes		 = $request->get('notes');
+		
 		$recipe->save();
 		
 		// Delete all the ingredients the old recipe had.
@@ -164,6 +150,10 @@ class RecipeController extends Controller
 		}
 
 		// Insert the new ingredients of the recipe (as in store())
+		// counter is used to get the name of the input field. 
+		// We use javascript in our corrensponding view, and also use
+		// counter there, so if you want to understand this better
+		// you should check the view file.
 		$counter = 0;
 		while($request->has('recipeIngredients'.strval($counter))  &&
 			  $request->has('recipeIngredientQty'.strval($counter)))	{
@@ -188,9 +178,6 @@ class RecipeController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
