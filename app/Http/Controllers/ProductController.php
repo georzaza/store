@@ -19,6 +19,20 @@ use Illuminate\Support\Facades\DB;
  *	destroy($id)
  */
 
+ /*
+ * An important note about validation (store & update methods):
+ * 
+ * Laravel does not provide a 'double' type for validation.
+ * However, we want 'price' and 'weight' fields of a Product to be doubles.
+ * So to provide this functionality, we use a regex.
+ * (This happens in the validation arrays of the store and update methods)
+ * 
+ * TODO: this regex is not complete. It accepts double values that 
+ * 		 have more than one '.' if these extra dots are at the end of 
+ * 		 the string.
+ * 
+ */
+
 
 class ProductController extends Controller
 {

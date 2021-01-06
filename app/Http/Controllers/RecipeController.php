@@ -7,6 +7,12 @@ use App\Models\Recipe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+/*
+ * IMPORTANT: 
+ * This Controller also handles the Ingredients!
+ * 
+*/
+
 
 /* List of functions in this Controller:
  *
@@ -17,6 +23,20 @@ use Illuminate\Support\Facades\DB;
  *	edit($id)
  *	update(Request $request, $id)
  *	destroy($id)
+ */
+
+
+/*
+ * An important note about validation (store & update methods):
+ * 
+ * Laravel does not provide a 'double' type for validation.
+ * However, we want the 'qty' field of an Ingredient to be a double.
+ * So to provide this functionality, we use a regex.
+ * (This happens in the validation arrays of the store and update methods)
+ * 
+ * TODO: this regex is not complete. It accepts double values that 
+ * 		 have more than one '.' if these extra dots are at the end of 
+ * 		 the string.
  */
 
 class RecipeController extends Controller
@@ -47,8 +67,9 @@ class RecipeController extends Controller
     /** Store a newly created resource in storage. */
     public function store(Request $request)
     {	
-		// Save the recipe, without ingredients.
-		// We do this first as we need it's id for the ingredient table.
+		// This is half of the validation process and refers to the Recipe entity.
+		// We first validate the recipe and save it, because for the ingredients
+		// we need this recipe's id .
         $request->validate([
 			'recipe_name'	=> 'required', 
 			'execution'		=> 'required', 
@@ -62,13 +83,16 @@ class RecipeController extends Controller
 		$recipe->save();
 		
 		
-		// Next we save the ingredients of the recipe.
-		// For every ingredient of the request, we
-		// create a new ingredient entry in our table, 
-		// save it's name and qty based on request, 
-		// and associate it's foreign recipe_id key with the recipe's 
-		// id that we just saved earlier.
-		$counter = 0;
+		// The other half of the validation, the ingredients' validation, 
+		// happens here and after that we save the ingredients.
+		// In order to understand what this code does, you need to take a look 
+		// at the Javascript code in one of the view files: 
+		//   resources/views/recipes/create.blade.php
+		//   resources/views/recipes/edit.blade.php
+		// There, we assign dynamic names for the input fields of the ingredients.
+		// (recipeIngredients and recipeIngredientQty)
+
+		$counter = 0; 	// used to produce the same dynamic names as the frontend does
 		while($request->has('recipeIngredients'.strval($counter))  &&
 			  $request->has('recipeIngredientQty'.strval($counter)))	{
 			
@@ -117,21 +141,15 @@ class RecipeController extends Controller
 		]);
 		// What follows is an alternate implementation of how
 		// to update a recipe and it's ingredients.
-		// First of all, we could update the recipe with 
-		// something like this:
 		//
 		// DB::table('recipes')
-		// 		->where('recipe_id', $recipe->recipe_id)
+		// 		->where('recipe_id', '=', $id)
 		//		->update([
 		//			'recipe_name' => $request->get('recipe_name'),
 		//			'execution'   => $request->get('execution'),
+		//			'notes'		  => $request->get('notes')
 		//		]);
 		//
-		// Should probably improve the following like this:
-		// Somehow, we should filter and get only the fields that 
-		// the user changed, and then update only them. Javascript maybe?
-		// What we do is: 
-		// We delete all ingredients, and then get the new ones. 
 
 		// get the recipe that we are updating, 
 		// update it's values and save it.
@@ -149,11 +167,9 @@ class RecipeController extends Controller
 			$ingredient->delete();
 		}
 
-		// Insert the new ingredients of the recipe (as in store())
-		// counter is used to get the name of the input field. 
-		// We use javascript in our corrensponding view, and also use
-		// counter there, so if you want to understand this better
-		// you should check the view file.
+		// Insert the new ingredients of the recipe. 
+		// Check the comment section of the store() method 
+		// for a better understanding.
 		$counter = 0;
 		while($request->has('recipeIngredients'.strval($counter))  &&
 			  $request->has('recipeIngredientQty'.strval($counter)))	{
@@ -176,15 +192,15 @@ class RecipeController extends Controller
         return redirect('/recipes')->with('success', 'recipe updated!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+    /** Remove the specified resource from storage. */
     public function destroy($id)
     {
 		// deletes the recipe. 
-		// In our migration file, we declare the 'recipe' foreign key
-		// of the table ingredients in a way that when a recipe is removed, 
-		// all it's ingredients will be removed too. (onDelete('CASCADE'))
+		// When a recipe is removed, all it's ingredients will 
+		// be removed too. This functionality is provided through
+		// the use of the: onDelete('CASCADE') option on the 
+		// foreign key of the ingredients.
+		// (Check the migration file of the Ingredients table)
         $recipe = Recipe::find($id);
         $recipe->delete();
         return redirect('/recipes')->with('success', 'recipe deleted!');
