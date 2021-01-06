@@ -26,18 +26,10 @@ class CreateProductsTable extends Migration
 			$table->increments('product_id');
 			$table->timestamps();
 			$table->string('product_name');
-			$table->string('product_brand')->nullable();
 			$table->string('exp_date');
-			$table->string('exp_date_after_opening')->nullable();
-			$table->string('opened_at')->nullable();
 			$table->string('qty');
+			$table->string('weight');
 			$table->string('price')->nullable();
-			$table->integer('product_type')->unsigned();
-			
-			// Probably should add onDelete("CASCADE') and change the destroy()
-			// method of the ProductsController. 
-			// More info is provided on the comment section of the method.
-			$table->foreign('product_type')->references('product_type_id')->on('product_types');
         });
     }
 
