@@ -18,7 +18,7 @@
 			<input type="text"  size="15"  id="insearch" name="insearch" placeholder="Search for product" >
     		<button type="submit" class="btn btn-primary">Go</button>
 		</form>
-
+		
 		<br></br>
 		<a style="margin-bottom: 2%;" href="<?php echo e(route('products.create')); ?>" class="btn btn-primary">Add New Product</a>  	
 
@@ -69,7 +69,7 @@
   	<?php endif; ?>
 </div>
 
-<br></br><br></br>
+<br>
 <form action="<?php echo e(route('CreateQuestion.store')); ?>" method="post">
   <div class="form-group">
     <label for="1stquestion" style="font-size:18px" >Search for recipes containing the following ingredient: </label>

@@ -20,8 +20,8 @@
 			<input type="text"  size="15"  id="insearch" name="insearch" placeholder="Search for product" >
     		<button type="submit" class="btn btn-primary">Go</button>
 		</form>
-
-		<br></br>
+		
+		<br>
 		<a style="margin-bottom: 2%;" href="{{ route('products.create')}}" class="btn btn-primary">Add New Product</a>  	
 
     	<table class="table table-striped">
@@ -71,7 +71,7 @@
   	@endif
 </div>
 
-<br></br><br></br>
+<br>
 <form action="{{ route('CreateQuestion.store') }}" method="post">
   <div class="form-group">
     <label for="1stquestion" style="font-size:18px" >Search for recipes containing the following ingredient: </label>
