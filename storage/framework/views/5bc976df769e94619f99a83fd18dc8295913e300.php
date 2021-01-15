@@ -1,14 +1,15 @@
 <?php $__env->startSection('main'); ?>
 
-<div class="topnav">
-  <a class="active" href="/">Home</a>
-  <a href="/products">Products</a>
-  <a href="/recipes">Recipes</a>
-</div> 
+
 
 
 <div class="row">
   <div class="col-sm-4 col-md-offset-4">
+  	<div style="margin-bottom: 10%;">
+  		<a style="margin: 5px;" href="/" class="btn btn-info">Home</a>
+		<a style="margin: 5px;" href="/recipes" class="btn btn-info">Recipes</a>
+		<a style="margin: 5px;" href="/producs" class="btn btn-info">Products</a>
+  	</div>
     <h1 class="display-3" style="text-align:center;">Add a product</h1>
   <div>
     <?php if($errors->any()): ?>
@@ -47,8 +48,8 @@
         </div>
 
 		<div class="form-group" >
-        	<button type="submit" class="btn btn-primary-outline" style="margin-left:46.5%; margin-right:50%; margin-top:15px;"
-			  	>Add product
+        	<button type="submit" class="btn btn-danger" style="margin-left:30%; width: auto; margin-top: 15px;">
+			  	Add product
 			</button>
 		</div>
       </form>
