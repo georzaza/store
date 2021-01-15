@@ -44,7 +44,7 @@
         </div>
 	    	<div class="form-group" >    
             <label for="type">Details</label><br/>
-            <input type="text" size="40" maxlength="120" class="form-control" name="details" placeholder="e.g. with chocolate, 5% or whatever" />
+            <input type="text" size="40" maxlength="120" class="form-control" name="details" placeholder="e.g. with chocolate, 5%, etc" />
         </div>
 
 		<div class="form-group" >

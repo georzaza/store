@@ -4,24 +4,33 @@
   
   <div >
   	<a style="margin: 5px;" href="/" class="btn btn-info">Home</a>
-  	<a style="margin: 5px;" href="/recipes" class="btn btn-info">See all recipes</a>
+	  <a style="margin: 5px;" href="/products" class="btn btn-info">Products</a>
+  	<a style="margin: 5px;" href="/recipes" class="btn btn-info">Recipes</a>
   </div>   
 
 </div> 
 
 <div class="row">
 <div class="col-sm-12">
-    <h1 class="display-4" style="text-align:center;">Products</h1>
+    	<h1 class="display-4" style="text-align:center;">Products</h1>
+
+		<form class="form-inline" style="margin-left:80%">
+			<input type="text"  size="15"  id="insearch" name="insearch" placeholder="Search for product" >
+    		<button type="submit" class="btn btn-primary">Go</button>
+		</form>
+
+		<br></br>
 		<a style="margin-bottom: 2%;" href="<?php echo e(route('products.create')); ?>" class="btn btn-primary">Add New Product</a>  	
+
     	<table class="table table-striped">
       		<thead>
         		<tr>
-		  			<td>product_name &nbsp&nbsp</td>
-          			<td>exp_date &nbsp&nbsp&nbsp&nbsp</td>
-          			<td>qty &nbsp&nbsp</td>
-					<td>weight &nbsp&nbsp</td>
-					<td>details &nbsp&nbsp</td>
-          			<td colspan = 2>Actions</td>
+					<td><b>Product Name</b> &emsp;</td>
+          			<td><b>Expiration Date</b> &emsp;</td>
+          			<td><b>Quantity</b> &emsp;</td>
+					<td><b>Weight</b> &emsp;</td>
+					<td><b>Details</b> &emsp;</td>
+          			<td colspan = 2><b>Actions</b></td>
         		</tr>
     		</thead>
       		<tbody>
@@ -59,6 +68,16 @@
     	</div>
   	<?php endif; ?>
 </div>
+
+<br></br><br></br>
+<form action="<?php echo e(route('CreateQuestion.store')); ?>" method="post">
+  <div class="form-group">
+    <label for="1stquestion" style="font-size:18px" >Search for recipes containing the following ingredient: </label>
+	<br>
+    <input type="text" size="20" id="ingredient" name="ingredient" placeholder="ingredient" >
+    <button type="submit" class="btn btn-primary">Search</button>
+  </div>
+</form>
 
 <?php $__env->stopSection(); ?>
 
