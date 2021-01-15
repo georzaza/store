@@ -19,7 +19,7 @@
     		<button type="submit" class="btn btn-primary">Go</button>
 		</form>
 		
-		<br></br>
+		<br>
 		<a style="margin-bottom: 2%;" href="<?php echo e(route('products.create')); ?>" class="btn btn-primary">Add New Product</a>  	
 
     	<table class="table table-striped">
