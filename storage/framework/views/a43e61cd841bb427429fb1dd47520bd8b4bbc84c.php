@@ -43,7 +43,7 @@
 				<!-- extends the content of the Ingredients/Qty div (last div above).
 					 The labels' and inputs' names are changed accordingly -->
 				<script>
-					let counter = 1; // used for naming
+					let counter = 0; // used for naming
   					function doOnClick() {
     					let ingredientFormdiv = document.getElementById("formIngredients");	
 						let ingredient_input_name = "recipeIngredients".concat(counter.toString());
