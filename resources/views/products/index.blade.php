@@ -22,7 +22,7 @@
     		</thead>
       		<tbody>
 
-			  	@foreach($items as $item)
+			  	@foreach($products as $item)
         			<tr>
 		  				<td>{{$item->product_name }}</td>
           				<td>{{$item->exp_date }}</td>
