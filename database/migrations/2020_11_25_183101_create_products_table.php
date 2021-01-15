@@ -28,8 +28,9 @@ class CreateProductsTable extends Migration
 			$table->string('product_name');
 			$table->string('exp_date');
 			$table->string('qty');
-			$table->string('weight');
-			$table->string('price')->nullable();
+            $table->string('weight')->nullable();
+            $table->string('details')->nullable();
+		
         });
     }
 

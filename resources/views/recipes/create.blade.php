@@ -27,7 +27,7 @@
 				<br>
         		<div class="form-group" style="text-align:center;">
 		            <label for="execution">Execution Instructions:</label><br>
-            		<textarea  form="theForm" class="form-control" name="execution" style="width: 400px; height:150px;">
+            		<textarea  form="theForm" class="form-control" name="execution" style="width:400px; height:100px;">
 					</textarea>
 				</div>
 				<br>

@@ -27,9 +27,9 @@ class Product extends Model
     protected $guarded = ['product_id'];
     protected $fillable = [
 		'product_name', 
-		'exp_date', 
-		'price', 
+		'exp_date',  
 		'qty',
-		'weight'
+		'weight',
+		'details'
     ];
 }

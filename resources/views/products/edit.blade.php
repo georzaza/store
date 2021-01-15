@@ -20,45 +20,27 @@
             @method('PATCH')
             @csrf
 
-            <div class="form-group" style="text-align:center;">
-              	<label for="product_name">Product Name: (e.g. Yogurt 5%)</label><br>
-              	<input type="text" class="form-control" name="product_name" value={{$product->product_name}}>
-			</div>
-			<br>
-		  	<div class="form-group" style="text-align:center;">
-              	<label for="product_brand">Product Brand: (e.g. Total)</label><br>
-              	<input type="text" class="form-control" name="product_brand" value={{$product->product_brand}}>
-          	</div>
-			<br>
-			<div class="form-group" style="text-align:center;">
-              	<label for="exp_date">Expiration Date:</label><br>
-              	<input type="text" class="form-control" name="exp_date" value={{$product->exp_date}}>
-          	</div>
-			<br>
-			<div class="form-group" style="text-align:center;">
-              	<label for="exp_date_after_opening">Exp. Date After Opening:</label><br>
-            	<input type="text" class="form-control" name="exp_date_after_opening" value={{$product->exp_date_after_opening}}>
-			</div>
-			<br>
-          	<div class="form-group" style="text-align:center;">
-              	<label for="opened_at">Opened At:</label><br>
-              	<input type="text" class="form-control" name="opened_at" value={{$product->opened_at}}>
-			</div>
-			<br>
-          	<div class="form-group" style="text-align:center;">
-              	<label for="qty">Quantity: (in kg or lb, e.g. 250 gr) </label><br>
-              	<input type="number" step="0.001" min=0 class="form-control" name="qty" value={{$product->qty}}>
-			</div>
-			<br>
-          	<div class="form-group" style="text-align:center;">
-              	<label for="price">Price:</label><br>
-              	<input type="number" step="0.001" min=0 class="form-control" name="price" value={{$product->price}}>
-          	</div>
-			<br>
-			<div class="form-group" style="text-align:center;">
-            	<label for="type">Category<br/>e.g. for Lamb Chops enter Lamb, for Yogurt 5% enter Yogurt:</label><br/>
-    	    	<input type="text" class="form-control" name="type" >
-			</div>
+			<div class="form-group"	style="text-align:center; padding:0.5% 0.5%;>    
+            <label for="product_name">Product Name:</label><br/>
+            	<input type="text" class="form-control" name="product_name" placeholder="e.g. Yogurt"/>
+       		 </div>
+		    
+       		 <div class="form-group" style="text-align:center; padding:0.5% 0.5%;">    
+            	<label for="exp_date">Expiration Date:</label><br/>
+            	<input type="date" class="form-control" name="exp_date"/>
+        	</div>
+        	<div class="form-group" style="text-align:center; padding:0.5% 0.5%;">    
+           		<label for="qty">Quantity</label><br/>
+           		<input type="number" step="1" min=0 class="form-control" name="qty"/>
+       		 </div>
+       		 <div class="form-group" style="text-align:center; padding:0.5% 0.5%;">    
+           		 <label for="price">Weight:<br>(enter in Kg) </label><br/>
+    	    	<input type="number" step="0.01" min=0 class="form-control" name="price"/>
+        	</div>
+	    	<div class="form-group" style="text-align:center; padding:0.5% 0.5%;">    
+           		 <label for="type">Details</label><br/>
+            	<input type="text" size="40" maxlength="120" class="form-control" name="details" placeholder="e.g. with chocolate, 5% or whatever" />
+        	</div>
 			<br>
             <button type="submit" class="btn btn-primary" style="margin-left:46.5%; margin-right:50%; margin-top:15px;">
 				Update

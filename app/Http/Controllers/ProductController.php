@@ -65,7 +65,7 @@ class ProductController extends Controller
 			'exp_date'		=> 'required|date', 
 			'qty'			=> 'required',
 			'weight' 		=> 'nullable|regex:/^\d+(\.\d{1,3})?$/', 
-			'price'			=> 'nullable|regex:/^\d+(\.\d{1,3})?$/'
+			'details'	    => 'nullable'
 		]);
 
         $product = new Product([
@@ -73,7 +73,7 @@ class ProductController extends Controller
         	'exp_date'		=> $request->get('exp_date'), 
 			'qty'			=> $request->get('qty'), 
 			'weight'		=> $request->get('weight'), 
-			'price'			=> $request->get('price')
+			'details'		=> $request->get('details')
 		]);
 		
         $product->save();
@@ -104,15 +104,14 @@ class ProductController extends Controller
 			'exp_date'		=> 'required|date', 
 			'qty'			=> 'required', 
 			'weight'		=> 'nullable|regex:/^\d+(\.\d{1,3})?$/', 
-			'price'			=> 'nullable|regex:/^\d+(\.\d{1,3})?$/'
+			'details'	    => 'nullable'
 		]);
 
 		$product = Product::find($id);
-		$product->product_brand	= $request->get('product_brand');
         $product->exp_date		= $request->get('exp_date');
 		$product->qty			= $request->get('qty');
 		$product->weight		= $request->get('weight');
-        $product->price			= $request->get('price');
+        $product->details		= $request->get('details');
 
         $product->save();
         return redirect('/products')->with('success', 'product updated!');

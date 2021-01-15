@@ -13,27 +13,22 @@
       		<thead>
         		<tr>
 		  			<td>product_name </td>
-		  			<td>product_type </td>
-		  			<td>product_brand </td>
           			<td>exp_date </td>
-          			<td>exp_date_after_opening </td>
-          			<td>opened_at </td>
           			<td>qty </td>
-          			<td>price </td>
+					  <td>weight </td>
+					  <td>details </td>
           			<td colspan = 2>Actions</td>
         		</tr>
     		</thead>
       		<tbody>
-        		@foreach($items as $item)
+
+			  	@foreach($items as $item)
         			<tr>
 		  				<td>{{$item->product_name }}</td>
-		  				<td>{{$item->type }}</td>
-		  				<td>{{$item->product_brand }}</td>
           				<td>{{$item->exp_date }}</td>
-          				<td>{{$item->exp_date_after_opening }}</td>
-          				<td>{{$item->opened_at }}</td>
           				<td>{{$item->qty }}</td>
-          				<td>{{$item->price }}</td>
+						<td>{{$item->weight }}</td>
+						<td>{{$item->details }}</td>
           				<td>
               				<a href="{{ route('products.edit',$item->product_id)}}" class="btn btn-primary">Edit</a>
           				</td>
