@@ -1,21 +1,18 @@
 <?php $__env->startSection('main'); ?>
 
 
+<div class="topnav">
+  <div >
+  	<a style="margin: 5px;" href="/" class="btn btn-info">Home</a>
+  	<a style="margin: 5px;" href="/products" class="btn btn-info">Products</a>
+  </div>   
+</div>
+
+
 <div class="row">
   	<div class="col-sm-12" >
-    	<h1 class="display-3" style="text-align: center; margin-bottom:3%">Recipes</h1>
-
-		<form action="<?php echo e(route('recipes.create')); ?>" method="get">
-	    	<button class="btn btn-dark" type="submit">Add Recipe</button>
-		</form>
-
-
-
-	  	<div>
-    		<button type="button" href="<?php echo e(route('recipes.create')); ?>" class="btn btn-secondary">Add Recipe</a>
-			<a href="/products">See all products</a>
-			<a href="/">Home</a>
-   		</div>   
+	  <h1 class="display-4" style="text-align:center;">Recipes</h1>
+		<a style="margin-bottom: 2%;" href="<?php echo e(route('recipes.create')); ?>" class="btn btn-primary">Add New Recipe</a>  
     	<table class="table">
       		<thead>
 	        	<tr>

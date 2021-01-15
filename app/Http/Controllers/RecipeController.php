@@ -50,7 +50,7 @@ class RecipeController extends Controller
 		// to handle the data in our view.
 		$items = DB::table('recipes')
 			->join('ingredients', 'recipes.recipe_id', '=', 'ingredients.recipe')
-			->select('recipe_name', 'execution', 'notes', 'ingredient_name', 'qty', 'recipe')
+			->select('recipe_name', 'execution', 'ingredient_name', 'qty', 'recipe')
 			->get();
 		$recipes = Recipe::all();
 		return view('recipes.index', ['items' => $items, 'recipes' => $recipes]);
@@ -73,12 +73,10 @@ class RecipeController extends Controller
         $request->validate([
 			'recipe_name'	=> 'required', 
 			'execution'		=> 'required', 
-			'notes'			=> 'required'
 		]);
         $recipe = new Recipe([
 			'recipe_name'	=> $request->get('recipe_name'), 
 			'execution'		=> $request->get('execution'), 
-			'notes'			=> $request->get('notes')
         ]);
 		$recipe->save();
 		
@@ -137,7 +135,6 @@ class RecipeController extends Controller
         $request->validate([
 			'recipe_name'	=> 'required', 
 			'execution'		=> 'required', 
-			'notes'			=> 'required'
 		]);
 		// What follows is an alternate implementation of how
 		// to update a recipe and it's ingredients.
@@ -147,7 +144,6 @@ class RecipeController extends Controller
 		//		->update([
 		//			'recipe_name' => $request->get('recipe_name'),
 		//			'execution'   => $request->get('execution'),
-		//			'notes'		  => $request->get('notes')
 		//		]);
 		//
 
@@ -156,7 +152,6 @@ class RecipeController extends Controller
 		$recipe = Recipe::find($id);
 		$recipe->recipe_name = $request->get('recipe_name');
 		$recipe->execution	 = $request->get('execution');
-		$recipe->notes		 = $request->get('notes');
 		
 		$recipe->save();
 		

@@ -11,7 +11,7 @@
 
 <div class="row">
 <div class="col-sm-12">
-    	<h1 class="display-4" style="text-align:center;">Products</h1>
+    <h1 class="display-4" style="text-align:center;">Products</h1>
 		<a style="margin-bottom: 2%;" href="<?php echo e(route('products.create')); ?>" class="btn btn-primary">Add New Product</a>  	
     	<table class="table table-striped">
       		<thead>

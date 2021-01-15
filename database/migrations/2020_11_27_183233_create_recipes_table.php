@@ -24,7 +24,6 @@ class CreateRecipesTable extends Migration
 			$table->timestamps();			
 			$table->string('recipe_name');
 			$table->longText('execution');
-			$table->text('notes');
         });
     }
 
