@@ -23,31 +23,14 @@
 	<br>
 	<br>
 
-
 	<div class="col-sm-7" style="margin-left:10%;">
 		<a style="margin-bottom: 2%;" href="<?php echo e(route('recipes.create')); ?>" class="btn btn-primary">Add New Recipe</a>
-		<br>
-		<br> 
-		<caption>List of Recipes</caption>
 		<hr>
-		<br>
-		<table class="table table-hover table-borderless" col>
-      		<tbody>
-        		<?php $__currentLoopData = $recipes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        			<tr>
-						<td><?php echo e($item->recipe_name); ?></td>
-						<!--<td ><?php echo e($item->execution); ?></td>
-						<td ><?php echo e($item->ingredient_name); ?></td>
-						<td ><?php echo e($item->qty); ?></td>-->
-						<td>
-	              			<a href="<?php echo e(route('recipes.edit',$item->recipe_id)); ?>" class="btn btn-primary">Edit that shit</a>
-						</td>
-          				<td>
-							<a href="<?php echo e(route('recipes.destroy',$item->recipe_id)); ?>" class="btn btn-danger">Delete</a>
-          				</td>
-        			</tr>
-        		<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-      		</tbody>
+		<?php $__currentLoopData = $recipes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+			<a href="<?php echo e(route('recipes.show',$item->recipe_id)); ?>" style="margin-right:5%;"><?php echo e($item->recipe_name); ?></a>
+			<a href="<?php echo e(route('recipes.edit',$item->recipe_id)); ?>" style="margin-right:5%;" class="btn btn-primary">Edit</a>
+			<a href="<?php echo e(route('recipes.destroy',$item->recipe_id)); ?>" class="btn btn-danger">Delete</a>
+		<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 	</div>
 </div>
 
