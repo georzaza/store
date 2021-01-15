@@ -37,9 +37,10 @@
 					<textarea wrap="soft" form="theForm" class="form-group" name="execution" style="width:100%; height:80px; "></textarea>
 				</div><br>
 	
-          		<button type="submit" class="btn btn-danger" style="margin-left:46.5%; margin-top:10px;">
-					Add recipe
-				</button>
+				<div class="form-group" >
+        			<button type="submit" class="btn btn-danger" style="margin-left:30%; width: auto; margin-top: 15px;">
+			  			Add Recipe
+				</div>
 
 				<!-- extends the content of the Ingredients/Qty div (last div above).
 					 The labels' and inputs' names are changed accordingly -->
