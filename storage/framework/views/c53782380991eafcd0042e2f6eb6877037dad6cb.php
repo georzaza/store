@@ -1,19 +1,18 @@
 <?php $__env->startSection('main'); ?>
 
 <div class="topnav">
-  <a class="active" href="/">Home</a>
-  <a href="/products">Products</a>
-  <a href="/recipes">Recipes</a>
+  
+  <div >
+  	<a style="margin: 5px;" href="/" class="btn btn-info">Home</a>
+  	<a style="margin: 5px;" href="/recipes" class="btn btn-info">See all recipes</a>
+  </div>   
+
 </div> 
 
 <div class="row">
-	<div class="col-sm-12">
-    	<h1 class="display-3" style="text-align:center;">Products</h1>
-	  	<div>
-    		<a style="margin: 19px;" href="<?php echo e(route('products.create')); ?>" class="btn btn-primary">New product</a>
-			<a href="/recipes">See all recipes</a>
-			<a href="/">Home</a>
-    	</div>   
+<div class="col-sm-12">
+    	<h1 class="display-4" style="text-align:center;">Products</h1>
+		<a style="margin-bottom: 2%;" href="<?php echo e(route('products.create')); ?>" class="btn btn-primary">Add New Product</a>  	
     	<table class="table table-striped">
       		<thead>
         		<tr>
