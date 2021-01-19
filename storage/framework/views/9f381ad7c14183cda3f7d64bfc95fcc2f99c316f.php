@@ -44,12 +44,12 @@
 							<a style="text-align: center;" href="<?php echo e(route('recipes.show',$recipe->recipe_name)); ?>"><?php echo e($recipe->recipe_name); ?></a>
 						</td>
 						<td>
-							<a href="<?php echo e(route('recipes.edit',$recipe->recipe_id)); ?>" style="margin-right:15%; text-align: center;" class="btn btn-primary">Edit</a>
-							<a href="<?php echo e(route('recipes.destroy',$recipe->recipe_id)); ?>" style="text-align: center;" class="btn btn-danger">Delete</a>
+							<a href="<?php echo e(route('recipes.edit',$recipe->recipe_name)); ?>" style="margin-right:15%; text-align: center;" class="btn btn-primary">Edit</a>
+							<a href="<?php echo e(route('recipes.destroy',$recipe->recipe_name)); ?>" style="text-align: center;" class="btn btn-danger">Delete</a>
 						</td>
 						<td>
 							<?php $__currentLoopData = $items; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-								<p><?php echo e($item->ingredient_name); ?></p>
+								<?php if ($item->recipe == $recipe->recipe_id) echo '<p>'.$item->ingredient_name.'</p>';?>
 							<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 						</td>
 					</tr>

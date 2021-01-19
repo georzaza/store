@@ -51,7 +51,7 @@
 						</td>
 						<td>
 							@foreach($items as $item)
-								<p>{{$item->ingredient_name}}</p>
+								<?php if ($item->recipe == $recipe->recipe_id) echo '<p>'.$item->ingredient_name.'</p>';?>
 							@endforeach
 						</td>
 					</tr>
