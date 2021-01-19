@@ -34,24 +34,24 @@
 
 			<div class="form-group"	>    
             <label for="product_name">Product Name:</label><br/>
-            	<input type="text" class="form-control" name="product_name" placeholder="e.g. Yogurt"/>
+            	<input type="text" class="form-control" name="product_name" value="{{$product->product_name}}"/>
        		 </div>
 		    
        		 <div class="form-group" >    
             	<label for="exp_date">Expiration Date:</label><br/>
-            	<input type="date" class="form-control" name="exp_date"/>
+            	<input type="date" class="form-control" name="exp_date" value="{{$product->exp_date}}"/>
         	</div>
         	<div class="form-group" >    
            		<label for="qty">Quantity</label><br/>
-           		<input type="number" step="1" min=0 class="form-control" name="qty"/>
+           		<input type="number" step="1" min=0 class="form-control" name="qty" value="{{$product->qty}}"/>
        		 </div>
        		 <div class="form-group" >    
-           		 <label for="price">Weight:<br>(enter in Kg) </label><br/>
-    	    	<input type="number" step="0.01" min=0 class="form-control" name="price"/>
+           		 <label for="weight">Weight (in Kg / L) </label><br/>
+    	    	<input type="number" step="0.001" min=0 class="form-control" name="weight" value="{{$product->weight}}"/>
         	</div>
 	    	<div class="form-group" >    
            		 <label for="type">Details</label><br/>
-            	<input type="text" size="40" maxlength="120" class="form-control" name="details" placeholder="e.g. with chocolate, 5% or whatever" />
+            	<input type="text" size="40" maxlength="120" class="form-control" name="details" value="{{$product->details}}" />
         	</div>
 			<br>
             <button type="submit" class="btn btn-primary" style="margin-left:40%; margin-right:50%; margin-top:15px;  margin-bottom:5%;">

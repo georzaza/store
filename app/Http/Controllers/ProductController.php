@@ -108,6 +108,7 @@ class ProductController extends Controller
 		]);
 
 		$product = Product::find($id);
+		$product->product_name	= $request->get('product_name');
         $product->exp_date		= $request->get('exp_date');
 		$product->qty			= $request->get('qty');
 		$product->weight		= $request->get('weight');

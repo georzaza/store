@@ -27,7 +27,7 @@
 
     	<form method="post" action="{{ route('products.store') }}">
         	@csrf
-		  
+		  	@METHOD('POST')
         	<div class="form-group"	>    
 	            <label for="product_name">Product Name:</label><br/>
             	<input type="text" class="form-control" name="product_name" placeholder="e.g. Yogurt"/>
@@ -42,8 +42,8 @@
             	<input type="number" step="1" min=0 class="form-control" name="qty"/>
         	</div>
         	<div class="form-group" >    
-	            <label for="price">Weight:<br>(enter in Kg) </label><br/>
-    	    	<input type="number" step="0.01" min=0 class="form-control" name="price"/>
+	            <label for="weight">Weight (in Kg / L) </label><br/>
+    	    	<input type="number" step="0.01" min=0 class="form-control" name="weight"/>
         	</div>
 		    	<div class="form-group" >    
             	<label for="type">Details</label><br/>
