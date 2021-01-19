@@ -1,6 +1,15 @@
 @extends('base')
 
 @section('main')
+
+<div class="topnav">
+  <div >
+  	<a style="margin: 5px;" href="/" class="btn btn-info">Home</a>
+	  <a style="margin: 5px;" href="/products" class="btn btn-info">Products</a>
+  	<a style="margin: 5px;" href="/recipes" class="btn btn-info active">Recipes</a>
+  </div>   
+</div>
+
 <div class="row">
   	<div class="col-sm-8 offset-sm-2">
     	<h1 class="display-3" style="text-align:center;">Update a recipe</h1>
@@ -22,12 +31,12 @@
 
         		<div class="form-group" style="text-align:center;">
 		            <label for="recipe_name">Recipe Name:<br>(e.g. Spaghetti Marinara)</label><br>
-            		<input type="text" class="form-control" name="recipe_name">
+            		<input type="text" class="form-control" name="recipe_name" value="{{$recipes->recipe_name}}">
 				</div>
 				<br>
         		<div class="form-group" style="text-align:center;">
 		            <label for="execution">Execution Instructions:</label><br>
-            		<textarea  form="theForm" class="form-control" name="execution" style="width: 400px; height:150px;" >
+            		<textarea  form="theForm" class="form-control" name="execution" style="width: 400px; height:150px;" value="{{$recipe->execution}}" >
 					</textarea>
 				</div>
 				<br>
