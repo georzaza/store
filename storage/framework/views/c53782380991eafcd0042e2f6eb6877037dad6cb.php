@@ -1,7 +1,6 @@
 <?php $__env->startSection('main'); ?>
 
 
-
 <div class="topnav" id="topnav">
   <div >
   	<a style="margin: 5px;" href="/" class="btn btn-info">Home</a>
@@ -11,7 +10,7 @@
 </div>
 
 <div class="row">
-<div class="col-sm-12">
+	<div class="col-sm-12">
     	
 		<br>
 		<br>
