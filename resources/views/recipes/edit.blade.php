@@ -22,7 +22,7 @@
 
         		<div class="form-group" style="text-align:center;">
 		            <label for="recipe_name">Recipe Name:<br>(e.g. Spaghetti Marinara)</label><br>
-            		<input type="text" class="form-control" name="recipe_name"z>
+            		<input type="text" class="form-control" name="recipe_name">
 				</div>
 				<br>
         		<div class="form-group" style="text-align:center;">
