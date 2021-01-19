@@ -139,7 +139,7 @@ CREATE TABLE `products` (
   `weight` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `details` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`product_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -148,7 +148,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'2021-01-19 12:53:07','2021-01-19 14:36:10','12345','2021-01-05','12','0.001','fdsfdsfdsfds'),(2,'2021-01-19 12:53:35','2021-01-19 14:30:14','gdfgdf','2021-01-06','12','12.328','fsdfsad'),(3,'2021-01-19 14:26:14','2021-01-19 14:26:56','Yogurt 5%','2021-01-03','12',NULL,'chocolate yogurt');
+INSERT INTO `products` VALUES (1,'2021-01-19 12:53:07','2021-01-19 14:36:10','12345','2021-01-05','12','0.001','fdsfdsfdsfds'),(2,'2021-01-19 12:53:35','2021-01-19 14:30:14','gdfgdf','2021-01-06','12','12.328','fsdfsad'),(3,'2021-01-19 14:26:14','2021-01-19 14:26:56','Yogurt 5%','2021-01-03','12',NULL,'chocolate yogurt'),(4,'2021-01-19 15:34:28','2021-01-19 15:34:28','DFSKJLADSHFALKSDFH','2021-02-27','12','12','FDS'),(5,'2021-01-19 15:35:10','2021-01-19 15:35:10','mILK','2021-02-03','12','1','1');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -217,4 +217,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-19 18:42:46
+-- Dump completed on 2021-01-19 20:08:43

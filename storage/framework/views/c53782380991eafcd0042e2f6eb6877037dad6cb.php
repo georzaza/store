@@ -23,7 +23,7 @@
 
 		<input type="text" size="25" id="search_box" onkeyup="search_box()" placeholder="Search for product or details.." title="Type in a name">
     	<table class="table table-striped" id="products_table" >
-      		<thead>
+      		<thead class="thead-dark">
         		<tr>
 					<td><b>Product Name</b> &emsp;</td>
           			<td>
@@ -35,7 +35,7 @@
           			<td><b>Quantity</b> &emsp;</td>
 					<td><b>Weight</b> &emsp;</td>
 					<td><b>Details</b> &emsp;</td>
-          			<td colspan = 2><b>Actions</b></td>
+          			<td colspan = 2><b></b></td>
         		</tr>
     		</thead>
       		<tbody id="products">
