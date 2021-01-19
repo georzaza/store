@@ -41,7 +41,7 @@
 				<?php $__currentLoopData = $recipes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recipe): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 					<tr class="text-center">
 						<td class="text-center">
-							<a style="text-align: center;" href="<?php echo e(route('recipes.show',$recipe->recipe_id)); ?>"><?php echo e($recipe->recipe_name); ?></a>
+							<a style="text-align: center;" href="<?php echo e(route('recipes.show',$recipe->recipe_name)); ?>"><?php echo e($recipe->recipe_name); ?></a>
 						</td>
 						<td>
 							<a href="<?php echo e(route('recipes.edit',$recipe->recipe_id)); ?>" style="margin-right:15%; text-align: center;" class="btn btn-primary">Edit</a>

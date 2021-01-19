@@ -30,6 +30,7 @@ class RecipeController extends Controller
 					->select('recipe_name', 'execution', 'ingredient_name', 'qty', 'recipe')
 					->get();
 		$recipes = Recipe::all();
+		//dd($items);
 		return view('recipes.index', ['items' => $items, 'recipes' => $recipes]);
     }
 

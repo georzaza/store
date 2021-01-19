@@ -43,11 +43,11 @@
 				@foreach($recipes as $recipe)
 					<tr class="text-center">
 						<td class="text-center">
-							<a style="text-align: center;" href="{{ route('recipes.show',$recipe->recipe_id)}}">{{$recipe->recipe_name }}</a>
+							<a style="text-align: center;" href="{{ route('recipes.show',$recipe->recipe_name)}}">{{$recipe->recipe_name }}</a>
 						</td>
 						<td>
-							<a href="{{ route('recipes.edit',$recipe->recipe_id)}}" style="margin-right:15%; text-align: center;" class="btn btn-primary">Edit</a>
-							<a href="{{ route('recipes.destroy',$recipe->recipe_id)}}" style="text-align: center;" class="btn btn-danger">Delete</a>
+							<a href="{{ route('recipes.edit',$recipe->recipe_name)}}" style="margin-right:15%; text-align: center;" class="btn btn-primary">Edit</a>
+							<a href="{{ route('recipes.destroy',$recipe->recipe_name)}}" style="text-align: center;" class="btn btn-danger">Delete</a>
 						</td>
 						<td>
 							@foreach($items as $item)
