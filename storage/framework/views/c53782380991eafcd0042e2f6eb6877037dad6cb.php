@@ -27,7 +27,7 @@
 					<td><b>Product Name</b> &emsp;</td>
           			<td>
 					  	<b><a onclick="sortTable()" style="cursor: pointer; color: black;" >Expiration Date </a></b>
-						<img src="https://lh3.googleusercontent.com/proxy/drOC39C38e1FD5hU7tHStHEIsTEO7tGTlU186OBfigFR1NSVYH5D2wR0hujQLBHzbyox5aZvYbVqbjUSlSRyWijYLxkHydo" 
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_i_DfXCW6TIqhqYKDvOodMlmfBnO77TefTg&usqp=CAU" 
 							 style="height: 10px; width:15px;">
 						&emsp; 
 					</td>
