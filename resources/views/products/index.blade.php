@@ -2,7 +2,9 @@
 
 @section('main')
 
-<div class="topnav">
+
+
+<div class="topnav" id="topnav">
   <div >
   	<a style="margin: 5px;" href="/" class="btn btn-info">Home</a>
 	  <a style="margin: 5px;" href="/products" class="btn btn-info active">Products</a>
@@ -22,11 +24,16 @@
 		<br>
 
 		<input type="text" size="25" id="search_box" onkeyup="search_box()" placeholder="Search for product or details.." title="Type in a name">
-    	<table class="table table-striped">
+    	<table class="table table-striped" id="products_table" >
       		<thead>
         		<tr>
 					<td><b>Product Name</b> &emsp;</td>
-          			<td><b>Expiration Date</b> &emsp;</td>
+          			<td>
+					  	<b><a onclick="sortTable()" style="cursor: pointer; color: black;" >Expiration Date </a></b>
+						<img src="https://lh3.googleusercontent.com/proxy/drOC39C38e1FD5hU7tHStHEIsTEO7tGTlU186OBfigFR1NSVYH5D2wR0hujQLBHzbyox5aZvYbVqbjUSlSRyWijYLxkHydo" 
+							 style="height: 10px; width:15px;">
+						&emsp; 
+					</td>
           			<td><b>Quantity</b> &emsp;</td>
 					<td><b>Weight</b> &emsp;</td>
 					<td><b>Details</b> &emsp;</td>
@@ -37,7 +44,7 @@
 
 			  	@foreach($products as $item)
         			<tr>
-		  				<td >{{$item->product_name}}</td>
+		  				<td>{{$item->product_name}}</td>
           				<td>{{$item->exp_date }}</td>
           				<td>{{$item->qty }}</td>
 						<td>{{$item->weight }}</td>
@@ -72,6 +79,8 @@
 <br>
 <form action="{{ route('CreateQuestion.store') }}" method="post">
   <div class="form-group">
+
+
     <label for="1stquestion" style="font-size:18px" >Search for recipes containing the following ingredient: </label>
 	<br>
     <input type="text" size="20" id="ingredient" name="ingredient" placeholder="ingredient" >
@@ -79,6 +88,10 @@
   </div>
 </form>
 
+
+
+
+<!-- Search bar-->
 <script>
 	function search_box() {
   		let input, filter, tr, td, i, txtValue;
@@ -97,10 +110,44 @@
       			tr[i].style.display = "";
     		else
       			tr[i].style.display = "none";
-	
 		}
 	}
 </script>
 
+
+<!-- Sorts The Products By Expiration Date-->
+<script>
+	function sortTable() {
+	  	let table, rows, flag, i, x, y, shouldSwitch;
+	  	table = document.getElementById("products_table");
+	  	flag = true;
+	  	
+	  	while (flag) {
+	    	flag = false;
+	    	rows = table.rows;
+	    	for (i = 1; i < (rows.length - 1); i++) {
+      			shouldSwitch = false;
+      			x = rows[i].getElementsByTagName("TD")[1].innerText;
+      			y = rows[i + 1].getElementsByTagName("TD")[1].innerText;
+			  	if (x > y) {
+       				shouldSwitch = true;
+        			break;
+    			}
+    		}
+    		if (shouldSwitch) {
+      			rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      			flag = true;
+    		}
+
+  		}
+
+	}
+</script>
+
+
+<!-- Sorts the products immediately after the loading of the topnav -->
+<script>
+	document.getElementById("topnav").addEventListener("load", sortTable());
+</script>
 
 @endsection
