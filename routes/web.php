@@ -18,7 +18,10 @@ Route::get('/', function () {
 });
 
 Route::resource('products', 'App\Http\Controllers\ProductController');
+Route::get('/products.search', 'App\Http\Controllers\ProductController@search');
+
 Route::resource('recipes', 'App\Http\Controllers\RecipeController');
+
 Route::get('questions', function () {
     return view('Questions.first');
 });

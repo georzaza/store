@@ -38,9 +38,9 @@ class ProductController extends Controller
 {
 
     /** Display a listing of the resource. */
-    public function index()
+    public function index(Request $request)
     {
-		$products = Product::all();
+		$products = Product::all();	
         return view('products.index', ['products' => $products]);
     }
 
@@ -82,10 +82,10 @@ class ProductController extends Controller
 
 
    	/** Display the specified resource. */
-    public function show($id)
-    {
-        //
-    }
+	public function show($id)
+	{  
+		//
+	}
 
 
     /** Show the form for editing the specified resource. */
@@ -125,5 +125,6 @@ class ProductController extends Controller
         $product->delete();
 
         return redirect('/products')->with('success', 'product deleted!');
-    }
+	}	
+
 }

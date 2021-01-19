@@ -203,4 +203,5 @@ class RecipeController extends Controller
         $recipe->delete();
         return redirect('/recipes')->with('success', 'recipe deleted!');
 	}
+
 }
