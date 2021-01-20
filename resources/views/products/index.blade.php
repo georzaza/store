@@ -79,7 +79,7 @@
 <form action="{{ route('CreateQuestion.store') }}" method="post">
   <div class="form-group">
     <label for="1stquestion" style="font-size:18px" >Search for recipes with: </label>
-    <input type="text" size="20" id="ingredient" name="ingredient" placeholder="Start typing an ingredient" >
+    <input type="text" size="20" id="ingredient" name="ingredient" placeholder="Type an ingredient" >
     <button type="submit" class="btn btn-primary">Search</button>
   </div>
 </form>
