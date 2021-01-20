@@ -1,0 +1,11 @@
+Bootstrap 
+	recipes
+		edit
+		index -- bring buttons closer
+
+Home
+
+products:
+	Search for recipes with ingredient
+
+users

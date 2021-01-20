@@ -32,7 +32,7 @@
 							 style="height: 10px; width:15px;">
 					</td>
 					<th class="text-center" scope="col">Ingredients</th>
-					<th scope="col" style="text-align:center;"></td>
+					<th scope="col" colspan="2" style="text-align:center;"></td>
 				</tr>
 			</thead>
 			<tbody id="recipes" class="text-center">
@@ -42,7 +42,7 @@
 							<a style="text-align: center;" href="{{ route('recipes.show',$recipe->recipe_name)}}">{{$recipe->recipe_name }}</a>
 						</td>
 						<td>
-							<input class="iButton" type="button" value="expand" style="{display:block;}"></input>
+							<input class="iButton" type="button" value="expand" style="{display:block;}">
 							<div class="container" style="display:none;width:200px;height:100px;">
 								@foreach($items as $item)
 									<?php 
@@ -53,8 +53,14 @@
 							</div>							
 						</td>
 						<td>
-							<a href="{{ route('recipes.edit',$recipe->recipe_name)}}" style="text-align: center;" class="btn btn-primary">Edit</a>
-							<a href="{{ route('recipes.destroy',$recipe->recipe_name)}}" style="text-align: center;" class="btn btn-danger">Delete</a>
+							<a href="{{ route('recipes.edit',$recipe->recipe_id)}}" style="text-align: center;" class="btn btn-primary">Edit</a>
+						</td>
+						<td>
+							<form action="{{ route('recipes.destroy', $recipe->recipe_id)}}" method="post">
+								@csrf
+              					@method('DELETE')
+								<button class="btn btn-danger" type="submit" style="text-align: center;" >Delete</button>
+              				</form>
 						</td>
 					</tr>
 				@endforeach

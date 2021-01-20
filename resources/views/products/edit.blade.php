@@ -16,7 +16,7 @@
     <div class="col-sm-4 col-md-offset-4">
 
         <h1 class="display-3" style="text-align:center;">Update a product</h1>
-
+		
         @if ($errors->any())
         	<div class="alert alert-danger">
             	<ul>

@@ -1,11 +1,14 @@
 <?php $__env->startSection('main'); ?>
+<div class="topnav">
+  <div >
+  	<a style="margin: 5px;" href="/" class="btn btn-info">Home</a>
+	  <a style="margin: 5px;" href="/products" class="btn btn-info">Products</a>
+  	<a style="margin: 5px;" href="/recipes" class="btn btn-info active">Recipes</a>
+  </div>   
+</div>
+
 <div class="row">
   	<div class="col-sm-5 col-md-offset-2">
-  		<div style="margin-bottom: 10%;">
-  			<a style="margin: 5px;" href="/" class="btn btn-info">Home</a>
-			<a style="margin: 5px;" href="/recipes" class="btn btn-info">Recipes</a>
-			<a style="margin: 5px;" href="/producs" class="btn btn-info">Products</a>
-  		</div>
     	<h1 class="display-3" style="text-align:center;">Add New Recipe</h1>
   		<div>
     		<?php if($errors->any()): ?>

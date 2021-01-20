@@ -76,14 +76,19 @@
 <br>
 <form action="<?php echo e(route('CreateQuestion.store')); ?>" method="post">
   <div class="form-group">
-
-
-    <label for="1stquestion" style="font-size:18px" >Search for recipes containing the following ingredient: </label>
-	<br>
-    <input type="text" size="20" id="ingredient" name="ingredient" placeholder="ingredient" >
+    <label for="1stquestion" style="font-size:18px" >Search for recipes with: </label>
+    <input type="text" size="20" id="ingredient" name="ingredient" placeholder="Start typing an ingredient" >
     <button type="submit" class="btn btn-primary">Search</button>
   </div>
 </form>
+
+
+
+
+
+
+
+
 
 
 
