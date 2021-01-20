@@ -29,7 +29,7 @@
 					<td>
 					  	<b><a onclick="sortTable()" style="cursor: pointer; color: black;" >Name</a></b>
 						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_i_DfXCW6TIqhqYKDvOodMlmfBnO77TefTg&usqp=CAU" 
-							 style="height: 10px; width:15px;">
+							 style="height: 10px; width:15px; display: inline;">
 					</td>
 					<th class="text-center" scope="col">Ingredients</th>
 					<th scope="col" colspan="2" style="text-align:center;"></td>
@@ -43,7 +43,7 @@
 						</td>
 						<td>
 							<input class="iButton" type="button" value="expand" style="{display:block;}">
-							<div class="container" style="display:none;width:200px;height:100px;">
+							<div class="container" style="display:none;width:200px;height: auto;">
 								@foreach($items as $item)
 									<?php 
 										if ($item->recipe == $recipe->recipe_id) 

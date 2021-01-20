@@ -30,7 +30,7 @@
           			<td>
 					  	<b><a onclick="sortTable()" style="cursor: pointer; color: black;" >Expiration Date </a></b>
 						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_i_DfXCW6TIqhqYKDvOodMlmfBnO77TefTg&usqp=CAU" 
-							 style="height: 10px; width:15px;">
+							 style="height: 10px; width:15px; display: inline;">
 						&emsp; 
 					</td>
           			<td><b>Quantity</b> &emsp;</td>

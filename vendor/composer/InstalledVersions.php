@@ -1,5 +1,15 @@
 <?php
 
+
+
+
+
+
+
+
+
+
+
 namespace Composer;
 
 use Composer\Semver\VersionParser;
@@ -14,12 +24,12 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => 'v8.5.6',
-    'version' => '8.5.6.0',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '17d1d52f23d7a63d8043fd601c79aeabd31dc094',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -442,6 +452,15 @@ private static $installed = array (
         0 => '*',
       ),
     ),
+    'laravel/breeze' => 
+    array (
+      'pretty_version' => 'v1.0.2',
+      'version' => '1.0.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '24cf5acc5a77020465f304ce2d7f6b702f845d57',
+    ),
     'laravel/framework' => 
     array (
       'pretty_version' => 'v8.20.1',
@@ -453,12 +472,12 @@ private static $installed = array (
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => 'v8.5.6',
-      'version' => '8.5.6.0',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '17d1d52f23d7a63d8043fd601c79aeabd31dc094',
     ),
     'laravel/sail' => 
     array (
@@ -773,8 +792,8 @@ private static $installed = array (
     array (
       'provided' => 
       array (
-        0 => '1.0',
-        1 => '1.0.0',
+        0 => '1.0.0',
+        1 => '1.0',
       ),
     ),
     'psr/simple-cache' => 
