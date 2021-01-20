@@ -10,44 +10,37 @@ use DB;
 class QuestionController extends Controller
 {
 
-  public function index()
-  {
+  	public function index()
+  	{
 
-  }
-
-
-  public function store()
-  {
-    $item=Request()->get('ingredient');
-
-    $ingredients = DB::table('ingredients')
-             ->where('ingredient_name', $item)
-             ->get();
-
-      $items = array();
-
- foreach($ingredients as $ingredient){
+  	}
 
 
-   $recipe = DB::table('recipes')
-            ->where('recipe_id', $ingredient->recipe)
-			->distinct()
-			->get();
+  	public function store(Request $request)
+  	{
+		$item=Request()->get('ingredient');
 
+		$ingredients = DB::table('ingredients')
+        	->where('ingredient_name', 'like', $item)
+            ->get();
 
+    	//$items = array();
 
- $items[] = $recipe[0]->recipe_name;
+ 		foreach($ingredients as $ingredient){
+			$recipe = DB::table('recipes')
+            	->where('recipe_id', $ingredient->recipe)
+				->distinct()
+				->get();
+			$items[] = $recipe[0]->recipe_name;
 
+		}
 
- }
+    	return view('Questions.answers', ['items' => $items]);
+  	}
 
+	public function update()
+  	{
 
-      return view('Questions.answers',compact('items'));
-  }
-
-  public function update()
-  {
-
-  }
+  	}
 
 }
